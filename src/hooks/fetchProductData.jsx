@@ -30,5 +30,5 @@ export default function useProductData() {
     };
     fetchData();
   }, []);
-  return { data, error, loading };
+  return { data, setData, error, loading };
 }

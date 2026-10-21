@@ -1,3 +1,3 @@
 export function enrichProductData(product) {
-  return { ...product, cartQuantity: 0 };
+  return { ...product, quantity: 0, isInCart: false };
 }
