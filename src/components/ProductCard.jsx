@@ -1,4 +1,3 @@
-import { input } from "@testing-library/user-event/dist/cjs/event/input.js";
 import { useState } from "react";
 
 export default function ProductCard({ product, addToCart, updateQuantity }) {

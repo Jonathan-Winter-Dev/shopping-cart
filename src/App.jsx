@@ -30,25 +30,8 @@ function App() {
     );
   }
 
-  function updateQuantity(id, newQuantity) {
-    setData(
-      data.map((item) => {
-        if (id === item.id) {
-          return { ...item, quantity: newQuantity };
-        } else {
-          return item;
-        }
-      }),
-    );
-  }
-
   const productCards = data.map((product) => (
-    <ProductCard
-      key={product.id}
-      product={product}
-      addToCart={addToCart}
-      updateQuantity={updateQuantity}
-    />
+    <ProductCard key={product.id} product={product} addToCart={addToCart} />
   ));
 
   return (
