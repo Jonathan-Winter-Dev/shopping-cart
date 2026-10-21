@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { enrichProductData } from "../utils";
 
 const API_URL = "https://fakestoreapi.com/products";
 
@@ -15,7 +16,10 @@ export default function useProductData() {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
         const productsData = await response.json();
-        setData(productsData);
+        const enrichedProductsData = productsData.map((item) =>
+          enrichProductData(item),
+        );
+        setData(enrichedProductsData);
         setError(null);
       } catch (error) {
         setError(error.message);
