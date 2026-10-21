@@ -1,10 +1,13 @@
 import "./App.css";
 import useProductData from "./hooks/fetchProductData";
+import ProductCard from "./components/ProductCard";
 
 function App() {
-  console.log(useProductData());
+  const { data, error, loading } = useProductData();
 
-  return <h1>Hello World</h1>;
+  const productCards = data.map((product) => <ProductCard product={product} />);
+
+  return <div className="productCardsContainer">{productCards}</div>;
 }
 
 export default App;
