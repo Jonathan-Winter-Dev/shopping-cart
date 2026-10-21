@@ -12,7 +12,6 @@ export default function useProductData() {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL);
-        console.log(response);
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
@@ -21,7 +20,6 @@ export default function useProductData() {
           enrichProductData(item),
         );
         setData(enrichedProductsData);
-        console.log(enrichedProductsData);
         setError(null);
       } catch (error) {
         setError(error.message);
