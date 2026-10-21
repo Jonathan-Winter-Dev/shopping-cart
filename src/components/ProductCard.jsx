@@ -1,11 +1,16 @@
+import { input } from "@testing-library/user-event/dist/cjs/event/input.js";
+import { useState } from "react";
+
 export default function ProductCard({ product, addToCart, updateQuantity }) {
+  const [inputVal, setInputVal] = useState(1);
   function handleAddToCartClick(e) {
-    addToCart(Number(e.target.dataset.id));
+    addToCart(Number(e.target.dataset.id), inputVal);
+    setInputVal(1);
   }
 
   function handleQuantityChange(e) {
-    if (e.target.value < 0) return;
-    updateQuantity(Number(e.target.dataset.id), Number(e.target.value));
+    if (e.target.value < 1) return;
+    setInputVal(Number(e.target.value));
   }
 
   return (
@@ -19,7 +24,7 @@ export default function ProductCard({ product, addToCart, updateQuantity }) {
           name="cartQuantity"
           id="cartQuantity"
           type="number"
-          value={product.quantity}
+          value={inputVal}
           onChange={handleQuantityChange}
           data-id={product.id}
         />
