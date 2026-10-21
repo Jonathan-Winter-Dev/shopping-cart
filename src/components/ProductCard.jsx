@@ -1,6 +1,11 @@
-export default function ProductCard({ product, addToCart }) {
+export default function ProductCard({ product, addToCart, updateQuantity }) {
   function handleAddToCartClick(e) {
     addToCart(Number(e.target.dataset.id));
+  }
+
+  function handleQuantityChange(e) {
+    if (e.target.value < 0) return;
+    updateQuantity(Number(e.target.dataset.id), Number(e.target.value));
   }
 
   return (
@@ -15,6 +20,8 @@ export default function ProductCard({ product, addToCart }) {
           id="cartQuantity"
           type="number"
           value={product.quantity}
+          onChange={handleQuantityChange}
+          data-id={product.id}
         />
         <button data-id={product.id} onClick={handleAddToCartClick}>
           Add to Cart

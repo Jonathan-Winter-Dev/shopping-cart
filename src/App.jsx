@@ -10,13 +10,17 @@ function App() {
   if (error) return <ErrorDisplay errorMessage={error} />;
   if (loading) return <Loading />;
 
-  const inCart = data.filter((item) => item.inCart);
+  const inCart = data.reduce((acc, curr) => {
+    if (curr.inCart) {
+      acc += curr.quantity;
+    }
+    return acc;
+  }, 0);
 
   function addToCart(id) {
     setData(
       data.map((item) => {
         if (id === item.id) {
-          console.log(id, item.id);
           return { ...item, inCart: true };
         } else {
           return item;
@@ -25,13 +29,30 @@ function App() {
     );
   }
 
+  function updateQuantity(id, newQuantity) {
+    setData(
+      data.map((item) => {
+        if (id === item.id) {
+          return { ...item, quantity: newQuantity };
+        } else {
+          return item;
+        }
+      }),
+    );
+  }
+
   const productCards = data.map((product) => (
-    <ProductCard key={product.id} product={product} addToCart={addToCart} />
+    <ProductCard
+      key={product.id}
+      product={product}
+      addToCart={addToCart}
+      updateQuantity={updateQuantity}
+    />
   ));
 
   return (
     <>
-      <header>{inCart.length ?? 0}</header>
+      <header>{inCart ?? 0}</header>
       <div className="productCardsContainer">{productCards}</div>
     </>
   );
