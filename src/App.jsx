@@ -1,6 +1,6 @@
 import "./App.css";
 import useProductData from "./hooks/fetchProductData";
-import ProductCard from "./components/ProductCard";
+import ProductCard from "./components/productCards/ProductCard";
 import Loading from "./components/Loading";
 import ErrorDisplay from "./components/ErrorDisplay";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductCard({ product, addToCart, updateQuantity }) {
+export default function ProductCard({ product, addToCart }) {
   const [inputVal, setInputVal] = useState(1);
   function handleAddToCartClick(e) {
     addToCart(Number(e.target.dataset.id), inputVal);
@@ -18,7 +18,7 @@ export default function ProductCard({ product, addToCart, updateQuantity }) {
       <h2>{product.title}</h2>
       <p>{`£${product.price}`}</p>
       <div className="buttonsContainer">
-        <label htmlFor="catQuantity">Quantity</label>
+        <label htmlFor="cartQuantity">Quantity</label>
         <input
           name="cartQuantity"
           id="cartQuantity"
