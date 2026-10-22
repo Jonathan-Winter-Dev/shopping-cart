@@ -28,7 +28,7 @@ describe("Product Card", () => {
   it("handle Add to Cart button click", async () => {
     const onClick = vi.fn();
     const user = userEvent.setup();
-    render(<ProductCard addToCart={onClick} product={mockProductData} />);
+    render(<ProductCard setData={onClick} product={mockProductData} />);
 
     const button = screen.getByRole("button", { name: "Add to Cart" });
 

@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { addToCart } from "../../event-handlers/cartEvents";
 
-export default function ProductCard({ product, addToCart }) {
+export default function ProductCard({ product, setData }) {
   const [inputVal, setInputVal] = useState(1);
   function handleAddToCartClick(e) {
-    addToCart(Number(e.target.dataset.id), inputVal);
+    console.log(typeof setData);
+    addToCart(setData, Number(e.target.dataset.id), inputVal);
     setInputVal(1);
   }
 

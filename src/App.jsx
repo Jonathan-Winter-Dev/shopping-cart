@@ -17,21 +17,8 @@ function App() {
     return acc;
   }, 0);
 
-  function addToCart(id, quantityToAdd) {
-    setData(
-      data.map((item) => {
-        if (id === item.id) {
-          const newQuantity = quantityToAdd + item.quantity;
-          return { ...item, inCart: true, quantity: newQuantity };
-        } else {
-          return item;
-        }
-      }),
-    );
-  }
-
   const productCards = data.map((product) => (
-    <ProductCard key={product.id} product={product} addToCart={addToCart} />
+    <ProductCard key={product.id} product={product} setData={setData} />
   ));
 
   return (
