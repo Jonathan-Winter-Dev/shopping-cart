@@ -9,16 +9,16 @@ const routes = [
     element: <App />,
     children: [
       {
+        index: true,
+        element: <HomePage />,
+      },
+      {
         path: "mock",
         element: <MockChild />,
       },
       {
         path: "products",
         element: <Products />,
-      },
-      {
-        path: "home",
-        element: <HomePage />,
       },
     ],
   },
