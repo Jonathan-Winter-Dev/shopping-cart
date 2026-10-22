@@ -8,7 +8,8 @@ import HomePage from "./components/home-page/home-page";
 
 function App() {
   const { data, setData, error, loading } = useProductData();
-  const name = useParams();
+  const { name } = useParams();
+  console.log(name);
 
   if (error) return <ErrorDisplay errorMessage={error} />;
   if (loading) return <Loading />;
@@ -22,12 +23,7 @@ function App() {
 
   return (
     <>
-      <header>{inCart ?? "this is an empty cart bit"}</header>
-      {name === "products" ? (
-        <Outlet context={[data, setData]} />
-      ) : (
-        <HomePage />
-      )}
+      <Products setData={setData} data={data} />
     </>
   );
 }
