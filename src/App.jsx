@@ -9,8 +9,6 @@ import HeaderBar from "./components/header/header";
 
 function App() {
   const { data, setData, error, loading } = useProductData();
-  const { name } = useParams();
-  console.log(name);
 
   if (error) return <ErrorDisplay errorMessage={error} />;
   if (loading) return <Loading />;
@@ -25,7 +23,7 @@ function App() {
   return (
     <>
       <HeaderBar cartCount={inCart} />
-      <Outlet context={inCart} />
+      <Outlet context={[data, setData]} />
     </>
   );
 }
