@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { enrichProductData } from "../utils";
+import { nativeFetch, productDataExtraction } from "../utils";
 
 const API_URL = "https://dummyjson.com/products";
 
@@ -11,15 +11,8 @@ export default function useProductData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-          throw new Error(`HTTP error: Status ${response.status}`);
-        }
-        const productsData = await response.json();
-        const enrichedProductsData = productsData.products.map((item) =>
-          enrichProductData(item),
-        );
-        setData(enrichedProductsData);
+        const productsData = await nativeFetch(API_URL);
+        setData(productDataExtraction(productsData.products));
         setError(null);
       } catch (error) {
         setError(error.message);
