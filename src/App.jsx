@@ -2,9 +2,7 @@ import "./App.css";
 import useProductData from "./hooks/fetchProductData";
 import Loading from "./components/Loading";
 import ErrorDisplay from "./components/ErrorDisplay";
-import Products from "./components/productCards/Products";
-import { Outlet, useParams } from "react-router";
-import HomePage from "./components/home-page/home-page";
+import { Outlet } from "react-router";
 import HeaderBar from "./components/header/header";
 
 function App() {
