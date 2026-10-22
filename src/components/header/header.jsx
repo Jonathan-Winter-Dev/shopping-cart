@@ -1,9 +1,9 @@
+import { Link } from "react-router";
 export default function HeaderBar({ cartCount }) {
   return (
     <header>
-      <div className="cartButtonContainer">
-        <button>{cartCount}</button>
-      </div>
+      <Link to={`/`}>Home</Link>
+      <Link to={`products`}>Products: {cartCount}</Link>
     </header>
   );
 }
