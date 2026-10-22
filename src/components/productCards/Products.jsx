@@ -1,5 +1,4 @@
 import ProductCard from "./ProductCard";
-import { useOutletContext } from "react-router";
 export default function Products({ data, setData }) {
   const productCards = data.map((product) => (
     <ProductCard key={product.id} product={product} setData={setData} />

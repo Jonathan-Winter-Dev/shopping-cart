@@ -5,6 +5,7 @@ import ErrorDisplay from "./components/ErrorDisplay";
 import Products from "./components/productCards/Products";
 import { Outlet, useParams } from "react-router";
 import HomePage from "./components/home-page/home-page";
+import HeaderBar from "./components/header/header";
 
 function App() {
   const { data, setData, error, loading } = useProductData();
@@ -23,7 +24,8 @@ function App() {
 
   return (
     <>
-      <Products setData={setData} data={data} />
+      <HeaderBar cartCount={inCart} />
+      <Outlet context={inCart} />
     </>
   );
 }
