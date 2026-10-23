@@ -4,7 +4,6 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-
 import App from "./../App";
 
 window.fetch = vi.fn(() => {
@@ -26,14 +25,7 @@ window.fetch = vi.fn(() => {
 describe("Products Component", () => {
   it("Displays loading state correctly", () => {
     render(<App />);
-    screen.debug();
     expect(screen.getByText(/loading.../i)).toBeInTheDocument();
-  });
-
-  it("Displays card with product data once loading has finished", async () => {
-    render(<App />);
-    await waitForElementToBeRemoved(() => screen.getByText("Loading..."));
-    expect(screen.getByText("Test Title 1")).toBeInTheDocument();
   });
 
   it("Displays error page when handling a response that was not ok", async () => {

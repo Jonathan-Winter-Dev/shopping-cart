@@ -3,7 +3,7 @@ import useProductData from "./hooks/fetchProductData";
 import Loading from "./components/Loading";
 import ErrorDisplay from "./components/ErrorDisplay";
 import { Outlet } from "react-router";
-import HeaderBar from "./components/header/header";
+import HeaderBar from "./components/header/Header";
 
 function App() {
   const { data, setData, error, loading } = useProductData();
@@ -11,7 +11,7 @@ function App() {
   if (error) return <ErrorDisplay errorMessage={error} />;
   if (loading) return <Loading />;
 
-  const inCart = data.reduce((acc, curr) => {
+  const cartCount = data.reduce((acc, curr) => {
     if (curr.inCart) {
       acc += curr.quantity;
     }
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <HeaderBar cartCount={inCart} />
+      <HeaderBar cartCount={cartCount} />
       <Outlet context={[data, setData]} />
     </>
   );

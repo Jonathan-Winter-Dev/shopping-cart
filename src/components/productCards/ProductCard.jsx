@@ -3,8 +3,8 @@ import { addToCart } from "../../event-handlers/cartEvents";
 
 export default function ProductCard({ product, setData }) {
   const [inputVal, setInputVal] = useState(1);
+
   function handleAddToCartClick(e) {
-    console.log(typeof setData);
     addToCart(setData, Number(e.target.dataset.id), inputVal);
     setInputVal(1);
   }
