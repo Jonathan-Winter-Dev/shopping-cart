@@ -1,6 +1,7 @@
 import {
   changeProductQuantity,
   removeFromCart,
+  addToCart,
 } from "./../../event-handlers/cartEvents";
 
 export default function CartProduct({ productData, setData }) {
@@ -27,10 +28,13 @@ export default function CartProduct({ productData, setData }) {
           type="number"
           name="cartQuantity"
           id="cartQuantity"
-          value={inputVal}
+          value={productData.quantity}
           onChange={handleQuantityChange}
+          data-id={productData.id}
         />
-        <button onClick={handleProductRemove}>Remove From Cart</button>
+        <button onClick={handleProductRemove} data-id={productData.id}>
+          Remove From Cart
+        </button>
       </div>
     </div>
   );
