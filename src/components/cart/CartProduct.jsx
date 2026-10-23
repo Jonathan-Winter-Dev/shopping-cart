@@ -5,6 +5,7 @@ import {
 
 export default function CartProduct({ productData, setData }) {
   function handleQuantityChange(e) {
+    if (Number(e.target.value) < 1) return;
     changeProductQuantity(
       setData,
       Number(e.target.dataset.id),
@@ -20,7 +21,7 @@ export default function CartProduct({ productData, setData }) {
     <div className="cartProductContainer">
       <img src={productData.thumbnail} alt={productData.title} />
       <p>{productData.title}</p>
-      <p>{productData.quantity}</p>
+      <p>{`£${productData.price}`}</p>
       <div className="cartButtons">
         <label htmlFor="cartQuantity">Quantity</label>
         <input
