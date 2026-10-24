@@ -1,21 +1,33 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import CartProduct from "../components/cart/CartProduct";
 
 const mockProductDataInCart = {
+  id: 1,
   title: "Mock Title 1",
   price: "3.99",
   inCart: true,
   quantity: 3,
 };
 
-const mockProductDataNotInCart = {
+const mockProductDataInCartTwo = {
+  id: 2,
   title: "Mock Title 2",
-  price: "3.99",
-  inCart: false,
-  quantity: 3,
+  price: "4.99",
+  inCart: true,
+  quantity: 4,
 };
+
+function MockParent() {
+  const [data, setData] = React.useState([
+    mockProductDataInCart,
+    mockProductDataInCartTwo,
+  ]);
+
+  return <CartProduct productData={data[0]} setData={setData} />;
+}
 
 describe("Products In Cart", () => {
   it("should render all product details if it is in the cart", () => {
@@ -33,5 +45,19 @@ describe("Products In Cart", () => {
     expect(input).toBeInTheDocument();
 
     expect(Number(input.value)).toBe(3);
+  });
+
+  it("input should be able to change the quantity of products", async () => {
+    render(<MockParent />);
+    screen.debug();
+
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+    const user = userEvent.setup();
+
+    expect(Number(input.value)).toBe(3);
+
+    await user.type(input, "2");
+
+    expect(Number(input.value)).toBe(32);
   });
 });
