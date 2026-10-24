@@ -16,7 +16,7 @@ const mockProductDataInCartTwo = {
   id: 2,
   title: "Mock Title 2",
   price: "4.99",
-  inCart: true,
+  inCart: false,
   quantity: 4,
 };
 
@@ -26,7 +26,11 @@ function MockParent() {
     mockProductDataInCartTwo,
   ]);
 
-  return <CartProduct productData={data[0]} setData={setData} />;
+  const productsInCart = data.filter((product) => product.inCart);
+
+  if (productsInCart.length) {
+    return <CartProduct productData={productsInCart[0]} setData={setData} />;
+  }
 }
 
 describe("Products In Cart", () => {
@@ -49,7 +53,6 @@ describe("Products In Cart", () => {
 
   it("input should be able to change the quantity of products", async () => {
     render(<MockParent />);
-    screen.debug();
 
     const input = screen.getByRole("spinbutton", { name: "Quantity" });
     const user = userEvent.setup();
@@ -59,5 +62,20 @@ describe("Products In Cart", () => {
     await user.type(input, "2");
 
     expect(Number(input.value)).toBe(32);
+  });
+
+  it("should be able to remove from cart", async () => {
+    render(<MockParent />);
+
+    const user = userEvent.setup();
+
+    const button = screen.getByRole("button", { name: "Remove From Cart" });
+    const title = screen.getByText("Mock Title 1");
+
+    expect(title).toBeInTheDocument();
+
+    await user.click(button);
+
+    expect(title).not.toBeInTheDocument();
   });
 });
