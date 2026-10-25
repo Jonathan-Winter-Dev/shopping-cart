@@ -6,6 +6,8 @@ import ProductCard from "../components/productCards/ProductCard";
 const mockProductData = {
   title: "Mock Title 1",
   price: 3.99,
+  inCart: false,
+  quantity: 1,
 };
 
 describe("Product Card", () => {
@@ -16,8 +18,6 @@ describe("Product Card", () => {
     const price = screen.getByText("£3.99");
     const button = screen.getByRole("button", { name: "Add to Cart" });
     const input = screen.getByRole("spinbutton", { name: "Quantity" });
-
-    screen.debug();
 
     expect(title).toBeInTheDocument();
     expect(button).toBeInTheDocument();
@@ -57,6 +57,50 @@ describe("Product Card", () => {
     expect(Number(input.value)).toBe(1);
 
     await user.type(input, "-");
+
+    expect(Number(input.value)).toBe(1);
+  });
+
+  it("plus button adds to input value", async () => {
+    render(<ProductCard product={mockProductData} />);
+    const user = userEvent.setup();
+    const button = screen.getByRole("button", { name: "+" });
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+
+    expect(Number(input.value)).toBe(1);
+
+    await user.click(button);
+
+    expect(Number(input.value)).toBe(2);
+  });
+
+  it("minus button minuses input value", async () => {
+    render(<ProductCard product={mockProductData} />);
+    const user = userEvent.setup();
+    const plusButton = screen.getByRole("button", { name: "+" });
+    const minusButton = screen.getByRole("button", { name: "-" });
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+
+    expect(Number(input.value)).toBe(1);
+
+    await user.click(plusButton);
+
+    expect(Number(input.value)).toBe(2);
+
+    await user.click(minusButton);
+
+    expect(Number(input.value)).toBe(1);
+  });
+
+  it("minus button does not allow input to go below 1", async () => {
+    render(<ProductCard product={mockProductData} />);
+    const user = userEvent.setup();
+    const minusButton = screen.getByRole("button", { name: "-" });
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+
+    expect(Number(input.value)).toBe(1);
+
+    await user.click(minusButton);
 
     expect(Number(input.value)).toBe(1);
   });

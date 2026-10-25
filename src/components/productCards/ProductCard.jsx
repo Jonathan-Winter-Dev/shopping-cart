@@ -9,11 +9,19 @@ export default function ProductCard({ product, setData }) {
     setInputVal(1);
   }
 
-  function handleQuantityChange(e) {
+  function handleInputChange(e) {
     if (e.target.value < 1) return;
     setInputVal(Number(e.target.value));
   }
 
+  function handlePlusButtonClick() {
+    setInputVal((prevData) => prevData + 1);
+  }
+
+  function handleMinusButtonClick() {
+    if (inputVal <= 1) return;
+    setInputVal((prevData) => prevData - 1);
+  }
   return (
     <div className="productCard">
       <img src={product.thumbnail} alt={product.title} />
@@ -26,9 +34,15 @@ export default function ProductCard({ product, setData }) {
           id="cartQuantity"
           type="number"
           value={inputVal}
-          onChange={handleQuantityChange}
+          onChange={handleInputChange}
           data-id={product.id}
         />
+        <button className="quantityButton" onClick={handlePlusButtonClick}>
+          +
+        </button>
+        <button className="quantityButton" onClick={handleMinusButtonClick}>
+          -
+        </button>
         <button data-id={product.id} onClick={handleAddToCartClick}>
           Add to Cart
         </button>
