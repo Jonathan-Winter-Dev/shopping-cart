@@ -66,7 +66,6 @@ describe("Products In Cart", () => {
 
   it("should be able to remove from cart", async () => {
     render(<MockParent />);
-
     const user = userEvent.setup();
 
     const button = screen.getByRole("button", { name: "Remove From Cart" });
@@ -77,5 +76,33 @@ describe("Products In Cart", () => {
     await user.click(button);
 
     expect(title).not.toBeInTheDocument();
+  });
+
+  it("should add product quantity when clicking the plus button", async () => {
+    render(<MockParent />);
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+    const button = screen.getByRole("button", { name: "+" });
+
+    expect(Number(input.value)).toBe(3);
+
+    await user.click(button);
+
+    expect(Number(input.value)).toBe(4);
+  });
+
+  it("should minus product quantity when clicking the minus button", async () => {
+    render(<MockParent />);
+
+    const user = userEvent.setup();
+    const input = screen.getByRole("spinbutton", { name: "Quantity" });
+    const button = screen.getByRole("button", { name: "-" });
+
+    expect(Number(input.value)).toBe(3);
+
+    await user.click(button);
+
+    expect(Number(input.value)).toBe(2);
   });
 });
