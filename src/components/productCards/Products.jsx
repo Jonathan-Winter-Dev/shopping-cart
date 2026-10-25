@@ -1,5 +1,7 @@
 import { useOutletContext } from "react-router";
 import ProductCard from "./ProductCard";
+import styles from "./Products.module.css";
+
 export default function Products() {
   const [data, setData] = useOutletContext();
 
@@ -7,5 +9,5 @@ export default function Products() {
     <ProductCard key={product.id} product={product} setData={setData} />
   ));
 
-  return <div className="productCardsContainer">{productCards}</div>;
+  return <div className={styles.productCardsContainer}>{productCards}</div>;
 }

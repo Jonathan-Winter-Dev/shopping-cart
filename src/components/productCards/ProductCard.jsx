@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { addToCart } from "../../event-handlers/cartEvents";
+import styles from "./ProductCard.module.css";
 
 export default function ProductCard({ product, setData }) {
   const [inputVal, setInputVal] = useState(1);
@@ -23,11 +24,15 @@ export default function ProductCard({ product, setData }) {
     setInputVal((prevData) => prevData - 1);
   }
   return (
-    <div className="productCard">
-      <img src={product.thumbnail} alt={product.title} />
+    <div className={styles.productCard}>
+      <img
+        src={product.thumbnail}
+        alt={product.title}
+        className={styles.productImg}
+      />
       <h2>{product.title}</h2>
-      <p>{`£${product.price}`}</p>
-      <div className="buttonsContainer">
+      <p className={styles.productCardPrice}>{`£${product.price}`}</p>
+      <div className={styles.buttonsContainer}>
         <label htmlFor="cartQuantity">Quantity</label>
         <input
           name="cartQuantity"

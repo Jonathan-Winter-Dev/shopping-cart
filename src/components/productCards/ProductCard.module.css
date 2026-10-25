@@ -1,0 +1,26 @@
+.productCard {
+  composes: primaryColor from "./../global-styles/colours.module.css";
+  composes: primaryBg from "./../global-styles/colours.module.css";
+  border: 1px solid red;
+  border-radius: 15px;
+  padding: 0.8em;
+  display: grid;
+  grid-template-columns: 1f 1fr;
+  gap: 0.5em;
+  justify-items: center;
+}
+
+.productImg {
+  grid-column: 1/3;
+}
+
+.productCardPrice {
+  grid-column: 2/3;
+}
+
+.buttonsContainer {
+  grid-column: 1/3;
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
