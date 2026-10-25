@@ -6,6 +6,10 @@
   color: #070707;
 }
 
-.primaryButtonColor {
+.primaryBtnColor {
   background-color: #8eb8e5;
+}
+
+.primaryBtnColor:hover {
+  background-color: #74a2d4;
 }

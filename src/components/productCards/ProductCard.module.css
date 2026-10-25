@@ -1,17 +1,37 @@
 .productCard {
   composes: primaryColor from "./../global-styles/colours.module.css";
-  composes: primaryBg from "./../global-styles/colours.module.css";
-  border: 1px solid red;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  background-color: white;
+  padding: 0.5em;
   border-radius: 15px;
-  padding: 0.8em;
   display: grid;
   grid-template-columns: 1f 1fr;
   gap: 0.5em;
   justify-items: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8em;
+  background-color: rgb(240, 238, 238);
 }
 
-.productImg {
+.productInfoContainer {
   grid-column: 1/3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productCardImgContainer {
+  grid-column: 1/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: calc(15px - 0.5em);
+  border-top-right-radius: calc(15px - 0.5em);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fff 0%, rgb(240, 238, 238) 400px);
+  background-color: rgb(240, 238, 238);
 }
 
 .productCardPrice {
@@ -20,7 +40,26 @@
 
 .buttonsContainer {
   grid-column: 1/3;
-  background-color: red;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.quantityButtonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.addToCartBtn {
+  composes: primaryBtn from "./../global-styles/button.module.css";
+}
+
+.productCard input {
+  width: 2.5em;
+}
+
+.quantityButton {
+  composes: quantityBtn from "./../global-styles/button.module.css";
 }

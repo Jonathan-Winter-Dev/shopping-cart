@@ -25,30 +25,47 @@ export default function ProductCard({ product, setData }) {
   }
   return (
     <div className={styles.productCard}>
-      <img
-        src={product.thumbnail}
-        alt={product.title}
-        className={styles.productImg}
-      />
-      <h2>{product.title}</h2>
-      <p className={styles.productCardPrice}>{`£${product.price}`}</p>
-      <div className={styles.buttonsContainer}>
-        <label htmlFor="cartQuantity">Quantity</label>
-        <input
-          name="cartQuantity"
-          id="cartQuantity"
-          type="number"
-          value={inputVal}
-          onChange={handleInputChange}
-          data-id={product.id}
+      <div className={styles.productCardImgContainer}>
+        <img
+          src={product.images[0]}
+          alt={product.title}
+          className={styles.productImg}
         />
-        <button className="quantityButton" onClick={handlePlusButtonClick}>
-          +
-        </button>
-        <button className="quantityButton" onClick={handleMinusButtonClick}>
-          -
-        </button>
-        <button data-id={product.id} onClick={handleAddToCartClick}>
+      </div>
+      <div className={styles.productInfoContainer}>
+        <h2>{product.title}</h2>
+        <p className={styles.productCardPrice}>{`£${product.price}`}</p>
+      </div>
+      <div className={styles.buttonsContainer}>
+        <div className={styles.quantityButtonsContainer}>
+          <label htmlFor="cartQuantity">Quantity</label>
+          <input
+            name="cartQuantity"
+            id="cartQuantity"
+            type="number"
+            value={inputVal}
+            onChange={handleInputChange}
+            data-id={product.id}
+          />
+          <button
+            className={styles.quantityButton}
+            onClick={handlePlusButtonClick}
+          >
+            +
+          </button>
+          <button
+            className={styles.quantityButton}
+            onClick={handleMinusButtonClick}
+          >
+            -
+          </button>
+        </div>
+
+        <button
+          className={styles.addToCartBtn}
+          data-id={product.id}
+          onClick={handleAddToCartClick}
+        >
           Add to Cart
         </button>
       </div>
