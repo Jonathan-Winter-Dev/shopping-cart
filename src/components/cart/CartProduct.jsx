@@ -2,6 +2,7 @@ import {
   changeProductQuantity,
   removeFromCart,
 } from "./../../event-handlers/cartEvents";
+import CartQuantityButton from "./CartQuantityButtons";
 
 export default function CartProduct({ productData, setData }) {
   function handleQuantityChange(e) {
@@ -31,6 +32,16 @@ export default function CartProduct({ productData, setData }) {
           value={productData.quantity}
           onChange={handleQuantityChange}
           data-id={productData.id}
+        />
+        <CartQuantityButton
+          type="add"
+          setData={setData}
+          product={productData}
+        />
+        <CartQuantityButton
+          type="minus"
+          setData={setData}
+          product={productData}
         />
         <button onClick={handleProductRemove} data-id={productData.id}>
           Remove From Cart
