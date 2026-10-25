@@ -1,7 +1,6 @@
 import {
   changeProductQuantity,
   removeFromCart,
-  addToCart,
 } from "./../../event-handlers/cartEvents";
 
 export default function CartProduct({ productData, setData }) {

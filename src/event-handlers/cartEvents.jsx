@@ -34,3 +34,29 @@ export function removeFromCart(setData, id) {
     }),
   );
 }
+
+export function addOneQuantity(setData, id) {
+  setData((prevData) => {
+    prevData.map((item) => {
+      if (id === item.id) {
+        const newQuantity = (item.quantity += 1);
+        return { ...item, quantity: newQuantity };
+      } else {
+        return item;
+      }
+    });
+  });
+}
+
+export function minusOneQuantity(setData, id) {
+  setData((prevData) => {
+    prevData.map((item) => {
+      if (id === item.id) {
+        const newQuantity = (item.quantity -= 1);
+        return { ...item, quantity: newQuantity };
+      } else {
+        return item;
+      }
+    });
+  });
+}
