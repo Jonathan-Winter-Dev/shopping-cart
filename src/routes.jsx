@@ -1,6 +1,6 @@
 import App from "./App";
 import Cart from "./components/cart/Cart";
-import HomePage from "./components/home-page/home-page";
+import HomePage from "./components/home-page/HomePage";
 import Products from "./components/productCards/Products";
 
 const routes = [

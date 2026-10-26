@@ -1,4 +1,3 @@
-import "./App.css";
 import useProductData from "./hooks/fetchProductData";
 import Loading from "./components/Loading";
 import ErrorDisplay from "./components/ErrorDisplay";

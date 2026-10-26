@@ -1,0 +1,63 @@
+.homeContainer {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  height: 100vh;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.title {
+  grid-row: 4/5;
+  grid-column: 1/2;
+  animation-duration: 0.5s;
+  animation-name: tile-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  font-size: clamp(1rem, 19vw, 10rem);
+  position: absolute;
+  overflow: hidden;
+  transform: translateX(-100%);
+  transition-timing-function: ease-out;
+}
+.background {
+  will-change: transform, opacity;
+  grid-row: 2/5;
+  grid-column: 1/2;
+  animation-duration: 0.5s;
+  animation-name: background-fade;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+  position: absolute;
+  overflow: hidden;
+  max-width: 100%;
+  transform: translateX(100%);
+  transition-timing-function: ease-out;
+  -webkit-mask-image: linear-gradient(180deg, #ffffff 60%, transparent);
+}
+
+@keyframes background-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes tile-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
