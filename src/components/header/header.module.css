@@ -1,0 +1,76 @@
+.headerContainer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header {
+  will-change: transform, opacity;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2em;
+  height: 4em;
+  padding: 0 2em;
+  background-color: white;
+  animation-duration: 0.5s;
+  animation-name: header-fade;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+  transform: translateY(-100%);
+  transition-timing-function: ease-out;
+}
+
+.header > :last-child {
+  margin-left: auto;
+}
+
+.headerButton {
+  font-size: 1.5em;
+  height: 100%;
+  color: black;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  /* border: solid 1px red; */
+}
+
+.headerButton::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0.7em;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out;
+}
+
+.headerButton:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes button-hover {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: 5em;
+  }
+}
+
+@keyframes header-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}

@@ -20,7 +20,6 @@
   animation-fill-mode: both;
   font-size: clamp(1rem, 19vw, 10rem);
   position: absolute;
-  overflow: hidden;
   transform: translateX(-100%);
   transition-timing-function: ease-out;
 }
@@ -33,7 +32,6 @@
   animation-delay: 0.3s;
   animation-fill-mode: both;
   position: absolute;
-  overflow: hidden;
   max-width: 100%;
   transform: translateX(100%);
   transition-timing-function: ease-out;
