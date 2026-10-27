@@ -27,6 +27,10 @@
 }
 
 .headerButton {
+  composes: btn from "./../global-styles/button.module.css";
+}
+
+/* .headerButton {
   font-size: 1.5em;
   height: 100%;
   color: black;
@@ -51,7 +55,7 @@
 
 .headerButton:hover::after {
   transform: scaleX(1);
-}
+} */
 
 .basketIconContainer {
   display: grid;
