@@ -34,7 +34,6 @@
   align-items: center;
   text-decoration: none;
   position: relative;
-  /* border: solid 1px red; */
 }
 
 .headerButton::after {
@@ -52,6 +51,46 @@
 
 .headerButton:hover::after {
   transform: scaleX(1);
+}
+
+.basketIconContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  position: relative;
+}
+
+.basketIcon {
+  height: 26px;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.basketHandleLeft,
+.basketHandleRight {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  height: 0.7em;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  transform-origin: bottom;
+  transition: transform 0.3s ease-out;
+}
+
+.basketHandleLeft {
+  transform: translate(20%, -40%) rotate(35deg);
+}
+
+.basketHandleRight {
+  transform: translate(875%, -40%) rotate(-35deg);
+}
+
+.headerButton:hover .basketHandleRight {
+  transform: translate(875%, -40%) rotate(80deg);
+}
+
+.headerButton:hover .basketHandleLeft {
+  transform: translate(20%, -40%) rotate(-80deg);
 }
 
 @keyframes button-hover {
