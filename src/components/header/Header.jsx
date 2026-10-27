@@ -14,7 +14,6 @@ export default function HeaderBar({ cartCount }) {
           <span>Products</span>
         </Link>
         <Link className={styles.headerButton} to={`/cart`}>
-          {/* <span>Cart {cartCount}</span> */}
           <span className={styles.basketIconContainer}>
             <img src={basket} className={styles.basketIcon} alt="basket" />
             <img
@@ -28,6 +27,7 @@ export default function HeaderBar({ cartCount }) {
               aria-hidden="true"
             />
           </span>
+          <span className={styles.cartCount}>{cartCount}</span>
         </Link>
       </header>
     </div>

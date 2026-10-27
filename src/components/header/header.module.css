@@ -86,11 +86,15 @@
 }
 
 .headerButton:hover .basketHandleRight {
-  transform: translate(875%, -40%) rotate(80deg);
+  transform: translate(875%, -40%) rotate(50deg);
 }
 
 .headerButton:hover .basketHandleLeft {
-  transform: translate(20%, -40%) rotate(-80deg);
+  transform: translate(20%, -40%) rotate(-50deg);
+}
+
+.cartCount {
+  margin-left: 0.5em;
 }
 
 @keyframes button-hover {
