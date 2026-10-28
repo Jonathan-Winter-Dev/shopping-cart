@@ -3,6 +3,7 @@ import {
   removeFromCart,
 } from "./../../event-handlers/cartEvents";
 import CartQuantityButton from "./CartQuantityButtons";
+import styles from "./Cart.module.css";
 
 export default function CartProduct({ productData, setData }) {
   function handleQuantityChange(e) {
@@ -19,7 +20,7 @@ export default function CartProduct({ productData, setData }) {
   }
 
   return (
-    <div className="cartProductContainer">
+    <div className={styles.cartProductContainer}>
       <img src={productData.thumbnail} alt={productData.title} />
       <p>{productData.title}</p>
       <p>{`£${productData.price}`}</p>

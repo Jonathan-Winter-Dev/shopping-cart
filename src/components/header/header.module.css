@@ -30,33 +30,6 @@
   composes: btn from "./../global-styles/button.module.css";
 }
 
-/* .headerButton {
-  font-size: 1.5em;
-  height: 100%;
-  color: black;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-}
-
-.headerButton::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0.7em;
-  left: 0;
-  background-color: #000000;
-  transform-origin: bottom left;
-  transition: transform 0.3s ease-out;
-}
-
-.headerButton:hover::after {
-  transform: scaleX(1);
-} */
-
 .basketIconContainer {
   display: grid;
   grid-template-columns: 1fr;
