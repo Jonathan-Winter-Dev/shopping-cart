@@ -3,7 +3,7 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   background-color: white;
   padding: 0.5em;
-  border-radius: 15px;
+  border-radius: 10px;
   display: grid;
   grid-template-columns: 1f 1fr;
   gap: 0.5em;
@@ -26,10 +26,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top-left-radius: calc(15px - 0.5em);
-  border-top-right-radius: calc(15px - 0.5em);
-  width: auto;
-  height: 100%;
+  border-top-left-radius: calc(10px - 0.5em);
+  border-top-right-radius: calc(10px - 0.5em);
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: auto;
   background: linear-gradient(to bottom, #fff 0%, rgb(240, 238, 238) 400px);
   background-color: rgb(240, 238, 238);
 }
@@ -54,6 +55,8 @@
 
 .addToCartBtn {
   composes: primaryBtn from "./../global-styles/button.module.css";
+  text-wrap: nowrap;
+  font-size: 1.1em;
 }
 
 .productCard input {
@@ -61,5 +64,5 @@
 }
 
 .quantityButton {
-  composes: quantityBtn from "./../global-styles/button.module.css";
+  composes: qtyBtn from "./../global-styles/button.module.css";
 }

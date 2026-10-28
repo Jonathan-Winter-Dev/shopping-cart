@@ -31,20 +31,9 @@
   composes: btn;
 }
 
-.quantityBtn {
+.qtyBtn {
+  composes: btn;
   font-size: 2em;
-  font-weight: 700;
-  border: 1px solid black;
-  height: 40px;
-  width: 40px;
-  border-radius: 1em;
-  border: none;
-  transition: 0.3s ease-in-out;
-}
-
-.quantityBtn:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  background-color: white;
+  padding: 0 0.3em;
+  margin: 0 0.2em;
 }
