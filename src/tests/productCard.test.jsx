@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import ProductCard from "../components/productCards/ProductCard";
+import ProductCard from "./../components/productCards/ProductCard";
 
 const mockProductData = {
   title: "Mock Title 1",
