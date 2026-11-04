@@ -1,5 +1,6 @@
 .cartContainer {
   max-width: 1200px;
+  margin: auto;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -13,7 +14,7 @@
 }
 
 .cartProductContainer {
-  border: 1px solid red;
+  border: 1px solid black;
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding: 0.2em;
@@ -70,7 +71,7 @@
 }
 
 .checkoutSummary {
-  border: 1px solid red;
+  border: 1px solid black;
   height: fit-content;
   display: grid;
   padding: 1em;

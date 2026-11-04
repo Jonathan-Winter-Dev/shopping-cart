@@ -68,7 +68,7 @@ describe("Products In Cart", () => {
     render(<MockParent />);
     const user = userEvent.setup();
 
-    const button = screen.getByRole("button", { name: "Remove From Cart" });
+    const button = screen.getByRole("button", { name: "Remove from cart" });
     const title = screen.getByText("Mock Title 1");
 
     expect(title).toBeInTheDocument();
