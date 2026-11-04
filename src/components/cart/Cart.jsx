@@ -14,7 +14,7 @@ export default function Cart() {
       );
     });
 
-  const totalPrice = data.reduce((acc, item) => {
+  const priceOfProducts = data.reduce((acc, item) => {
     if (item.inCart) acc += item.quantity * item.price;
     return acc;
   }, 0);
@@ -22,7 +22,7 @@ export default function Cart() {
   return (
     <div className={styles.cartContainer}>
       <div className={styles.cartProductsContainer}>{productsInCartCards}</div>
-      <Checkout totalPrice={totalPrice} />
+      <Checkout priceOfProducts={priceOfProducts} />
     </div>
   );
 }

@@ -62,3 +62,49 @@
 .removeFromCartButton {
   margin-left: auto;
 }
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.checkoutSummary {
+  border: 1px solid red;
+  height: fit-content;
+  display: grid;
+  padding: 1em;
+}
+
+.checkoutPriceContainer {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 1em 0;
+}
+
+.checkoutPriceContainer p {
+  margin: 0.5em 0;
+}
+
+.checkoutButton {
+  width: 100%;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+  border: none;
+  padding: 1em;
+}
+
+.checkoutButton:hover {
+  cursor: not-allowed;
+}
+
+.paymentTypesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.paymentTypesContainer img {
+  height: 3em;
+}
