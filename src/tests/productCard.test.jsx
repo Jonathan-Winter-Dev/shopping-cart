@@ -8,6 +8,8 @@ const mockProductData = {
   price: 3.99,
   inCart: false,
   quantity: 1,
+  // test image
+  images: ["./../assets/visa.svg"],
 };
 
 describe("Product Card", () => {
