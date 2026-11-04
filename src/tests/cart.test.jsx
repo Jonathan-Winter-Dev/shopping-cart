@@ -34,7 +34,7 @@ const mockData = [
     images: ["./../assets/visa.svg"],
   },
   {
-    if: 4,
+    id: 4,
     title: "Mock Title 4",
     price: 4,
     inCart: false,
@@ -66,6 +66,19 @@ describe("Cart", () => {
     for (let i = 1; i < 3; i++) {
       expect(screen.getByText(`Mock Title ${i}`)).toBeInTheDocument();
     }
+  });
+
+  it("should not render products that are not in the cart", () => {
+    render(
+      <MockRouterContext
+        context={[mockData, setMockData]}
+        children={<Cart />}
+      />,
+    );
+
+    const itemTitle = screen.queryByText("Mock Title 4");
+
+    expect(itemTitle).not.toBeInTheDocument();
   });
 
   it("should render the correct price subtotal of all products", () => {
