@@ -29,20 +29,49 @@ const mockData = [
     // test image
     images: ["./../assets/visa.svg"],
   },
+  {
+    title: "Mock Title 4",
+    price: 4,
+    inCart: false,
+    quantity: 4,
+    // test image
+    images: ["./../assets/visa.svg"],
+  },
 ];
 
-const mockSetData = () => {
+const setMockData = () => {
   return;
 };
 
 describe("Cart", () => {
-  it("should render the page", () => {
+  it("should render the all products that are in the cart", () => {
     render(
       <MockRouterContext
-        context={[mockData, mockSetData]}
+        context={[mockData, setMockData]}
         children={<Cart />}
       />,
     );
-    screen.debug();
+
+    for (let i = 1; i < 3; i++) {
+      expect(screen.getByText(`Mock Title ${i}`)).toBeInTheDocument();
+    }
+  });
+
+  it("should render the correct price subtotal of all products", () => {
+    render(
+      <MockRouterContext
+        context={[mockData, setMockData]}
+        children={<Cart />}
+      />,
+    );
+
+    const priceOfProducts = mockData.reduce((acc, item) => {
+      if (item.inCart) acc += item.quantity * item.price;
+      return acc;
+    }, 0);
+
+    expect(
+      screen.getByText(`Subtotal: £${Number(priceOfProducts).toFixed(2)}`),
+    ).toBeInTheDocument();
   });
 });
