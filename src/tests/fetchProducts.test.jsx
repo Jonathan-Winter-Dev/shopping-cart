@@ -5,6 +5,7 @@ import {
 } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import App from "./../App";
+import { MemoryRouter, Routes, Route } from "react-router";
 
 window.fetch = vi.fn(() => {
   const mockResponse = {
@@ -45,8 +46,18 @@ describe("Products Component", () => {
       });
     });
 
-    render(<App />);
+    render(
+      <MemoryRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<App />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
     await waitForElementToBeRemoved(() => screen.getByText("Loading"));
-    expect(screen.getByText("Oops! Something's not working."));
+    expect(
+      screen.getByText("Oops! Something's not working."),
+    ).toBeInTheDocument();
   });
 });
