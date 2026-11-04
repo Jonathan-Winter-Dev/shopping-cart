@@ -25,7 +25,7 @@ window.fetch = vi.fn(() => {
 describe("Products Component", () => {
   it("Displays loading state correctly", () => {
     render(<App />);
-    expect(screen.getByText(/loading.../i)).toBeInTheDocument();
+    expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
   it("Displays error page when handling a response that was not ok", async () => {
@@ -46,7 +46,7 @@ describe("Products Component", () => {
     });
 
     render(<App />);
-    await waitForElementToBeRemoved(() => screen.getByText("Loading..."));
+    await waitForElementToBeRemoved(() => screen.getByText("Loading"));
     expect(screen.getByText("Oops! Something's not working."));
   });
 });
