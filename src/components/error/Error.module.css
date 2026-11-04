@@ -1,0 +1,15 @@
+.errorDisplay {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+  text-align: center;
+}
+
+.link {
+  composes: primaryBtn from "./../global-styles/button.module.css";
+  height: 2em;
+}

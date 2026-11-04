@@ -1,6 +1,6 @@
 import useProductData from "./hooks/fetchProductData";
 import Loading from "./components/loading/Loading";
-import ErrorDisplay from "./components/ErrorDisplay";
+import ErrorDisplay from "./components/error/ErrorDisplay";
 import { Outlet } from "react-router";
 import HeaderBar from "./components/header/Header";
 
