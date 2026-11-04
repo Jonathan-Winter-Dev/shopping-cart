@@ -22,9 +22,9 @@ export default function CartProduct({ productData, setData }) {
   return (
     <div className={styles.cartProductContainer}>
       <img src={productData.thumbnail} alt={productData.title} />
-      <p>{productData.title}</p>
+      <p className={styles.productTitle}>{productData.title}</p>
       <p>{`£${productData.price}`}</p>
-      <div className="cartButtons">
+      <div className={styles.cartButtonsContainer}>
         <label htmlFor="cartQuantity">Quantity</label>
         <input
           type="number"
@@ -35,17 +35,22 @@ export default function CartProduct({ productData, setData }) {
           data-id={productData.id}
         />
         <CartQuantityButton
-          type="add"
-          setData={setData}
-          product={productData}
-        />
-        <CartQuantityButton
           type="minus"
           setData={setData}
           product={productData}
         />
-        <button onClick={handleProductRemove} data-id={productData.id}>
-          Remove From Cart
+        <CartQuantityButton
+          type="add"
+          setData={setData}
+          product={productData}
+        />
+        <button
+          className={styles.removeFromCartButton}
+          onClick={handleProductRemove}
+          data-id={productData.id}
+          aria-label="Remove from cart"
+        >
+          X
         </button>
       </div>
     </div>

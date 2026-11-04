@@ -2,6 +2,7 @@ import {
   minusOneQuantity,
   addOneQuantity,
 } from "./../../event-handlers/cartEvents";
+import styles from "./Cart.module.css";
 
 export default function CartQuantityButton({ setData, product, type }) {
   if (type !== "add" && type !== "minus")
@@ -20,7 +21,7 @@ export default function CartQuantityButton({ setData, product, type }) {
 
   return (
     <button
-      className="quantityButtons"
+      className={styles.quantityButton}
       data-id={product.id}
       onClick={type === "add" ? handleAddButtonClick : handleMinusButtonClick}
     >

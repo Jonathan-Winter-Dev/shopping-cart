@@ -10,6 +10,10 @@
   border: none;
 }
 
+.btn:hover {
+  cursor: pointer;
+}
+
 .btn::after {
   content: "";
   position: absolute;
