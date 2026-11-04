@@ -11,6 +11,7 @@
 .cartProductsContainer {
   display: grid;
   gap: 0.5em;
+  height: fit-content;
 }
 
 .cartProductContainer {
@@ -19,6 +20,7 @@
   grid-template-columns: 1fr 3fr;
   padding: 0.2em;
   gap: 0.5em;
+  height: fit-content;
 }
 
 .cartProductContainer img {
@@ -39,7 +41,7 @@
   display: flex;
   align-content: center;
   gap: 0.5em;
-  /* justify-content: space-between; */
+  width: 100%;
 }
 
 .cartButtonsContainer input {
@@ -60,7 +62,8 @@
   font-size: 1.4em;
   background-color: white;
 }
-.removeFromCartButton {
+
+.cartButtonsContainer .removeFromCartButton {
   margin-left: auto;
 }
 

@@ -50,7 +50,7 @@ export default function CartProduct({ productData, setData }) {
           data-id={productData.id}
           aria-label="Remove from cart"
         >
-          X
+          x
         </button>
       </div>
     </div>
