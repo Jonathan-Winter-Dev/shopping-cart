@@ -6,9 +6,9 @@ export default function ErrorDisplay({ errorMessage }) {
     <div className={style.errorDisplay}>
       <h1>Oops! Something's not working.</h1>
       <p>{errorMessage}</p>
-      {/* <Link className={style.link} to={`/`}>
+      <Link className={style.link} to={`/`}>
         Take me home
-      </Link> */}
+      </Link>
     </div>
   );
 }

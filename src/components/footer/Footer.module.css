@@ -1,0 +1,48 @@
+.footer {
+  width: 100%;
+  height: fit-content;
+  padding: 3em;
+  display: flex;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerButton {
+  font-size: 1em;
+  padding: 0;
+  height: 100%;
+  display: inline;
+  color: white;
+  background-color: black;
+  align-items: center;
+  text-decoration: none;
+  position: relative;
+  border: none;
+  margin: 1em;
+}
+
+.footerButton:hover {
+  cursor: pointer;
+}
+
+.storeButtons .footerButton {
+  cursor: not-allowed;
+}
+
+.footerButton::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -0.3em;
+  left: 0;
+  background-color: white;
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out;
+}
+
+.footerButton:hover::after {
+  transform: scaleX(1);
+}
