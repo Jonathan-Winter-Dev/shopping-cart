@@ -8,11 +8,12 @@ export default function HeaderBar({ cartCount }) {
     <div className={styles.headerContainer}>
       <header className={styles.header}>
         <Link className={styles.headerButton} to={`/`}>
-          <span>Home</span>
+          <b>Coleman's</b>
         </Link>
         <Link className={styles.headerButton} to={`products`}>
           <span>Products</span>
         </Link>
+
         <Link className={styles.headerButton} to={`/cart`}>
           <span className={styles.basketIconContainer}>
             <img src={basket} className={styles.basketIcon} alt="basket" />

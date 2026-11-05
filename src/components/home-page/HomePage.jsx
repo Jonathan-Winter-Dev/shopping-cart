@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div className={styles.homeContainer}>
       <img className={styles.background} src={background} aria-hidden="true" />
-      <h1 className={styles.title}>cart</h1>
+      <h1 className={styles.title}>Coleman's</h1>
     </div>
   );
 }
