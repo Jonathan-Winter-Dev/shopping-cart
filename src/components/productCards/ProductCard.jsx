@@ -46,19 +46,21 @@ export default function ProductCard({ product, setData }) {
             value={inputVal}
             onChange={handleInputChange}
             data-id={product.id}
-          />{" "}
-          <button
-            className={styles.quantityButton}
-            onClick={handleMinusButtonClick}
-          >
-            -
-          </button>
-          <button
-            className={styles.quantityButton}
-            onClick={handlePlusButtonClick}
-          >
-            +
-          </button>
+          />
+          <span>
+            <button
+              className={styles.quantityButton}
+              onClick={handleMinusButtonClick}
+            >
+              -
+            </button>
+            <button
+              className={styles.quantityButton}
+              onClick={handlePlusButtonClick}
+            >
+              +
+            </button>
+          </span>
         </div>
 
         <button

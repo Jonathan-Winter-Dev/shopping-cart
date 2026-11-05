@@ -3,7 +3,15 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 1em;
   padding: 1em;
-  /* max-width: 1200px; */
   width: 100%;
   margin: auto;
+}
+
+@media (width <= 400px) {
+  .productCardsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+    gap: 0.5em;
+  }
 }

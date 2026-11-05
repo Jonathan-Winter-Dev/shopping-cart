@@ -50,6 +50,10 @@
   gap: 0.5em;
 }
 
+.quantityButtonsContainer span button {
+  display: inline;
+}
+
 .addToCartBtn {
   composes: primaryBtn from "./../global-styles/button.module.css";
   text-wrap: nowrap;
@@ -71,4 +75,11 @@
 }
 .productCard input:hover {
   cursor: pointer;
+}
+
+@media (width <= 400px) {
+  .quantityButtonsContainer,
+  .productInfoContainer {
+    flex-wrap: wrap;
+  }
 }
