@@ -8,7 +8,7 @@ export default function Footer() {
           className={style.footerButton}
           href="https://github.com/Jonathan-Winter-Dev"
         >
-          My GitHub
+          <b>My GitHub</b>
         </a>
       </div>
       <div className={style.storeButtons}>

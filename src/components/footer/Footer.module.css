@@ -46,3 +46,16 @@
 .footerButton:hover::after {
   transform: scaleX(1);
 }
+
+@media (width <= 900px) {
+  .footer {
+    padding: 1em;
+  }
+
+  .footer,
+  .storeButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+  }
+}
