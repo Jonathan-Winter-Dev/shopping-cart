@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(5, 1fr);
-  height: 100vh;
+  height: 80vh;
   align-items: center;
   position: relative;
   overflow: hidden;
@@ -57,5 +57,12 @@
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+@media (width <= 700px) {
+  .background {
+    object-fit: cover;
+    height: 50vh;
   }
 }
