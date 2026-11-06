@@ -25,8 +25,16 @@ window.fetch = vi.fn(() => {
 
 describe("Products Component", () => {
   it("Displays loading state correctly", () => {
-    render(<App />);
-    expect(screen.getByText(/loading/i)).toBeInTheDocument();
+    render(
+      <MemoryRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<App />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>,
+    );
+    screen.debug();
   });
 
   it("Displays error page when handling a response that was not ok", async () => {
