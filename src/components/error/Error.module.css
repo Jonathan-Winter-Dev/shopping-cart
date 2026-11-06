@@ -1,5 +1,5 @@
 .errorDisplay {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,5 @@
 }
 
 .link {
-  composes: primaryBtn from "./../global-styles/button.module.css";
-  height: 2em;
+  composes: qtyBtn from "./../global-styles/button.module.css";
 }
