@@ -63,6 +63,13 @@
 @media (width <= 700px) {
   .background {
     object-fit: cover;
+    height: 60vh;
+  }
+}
+
+@media (width <= 400px) {
+  .background {
+    object-fit: cover;
     height: 50vh;
   }
 }

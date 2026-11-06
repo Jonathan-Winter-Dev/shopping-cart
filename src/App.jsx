@@ -8,7 +8,7 @@ import Footer from "./components/footer/Footer";
 function App() {
   const { data, setData, error, loading } = useProductData();
 
-  if (!error) return <ErrorDisplay errorMessage={error} />;
+  if (error) return <ErrorDisplay errorMessage={error} />;
   if (loading) return <Loading />;
 
   const cartCount = data.reduce((acc, curr) => {
