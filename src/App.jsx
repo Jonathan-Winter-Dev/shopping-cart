@@ -8,8 +8,20 @@ import Footer from "./components/footer/Footer";
 function App() {
   const { data, setData, error, loading } = useProductData();
 
-  if (error) return <ErrorDisplay errorMessage={error} />;
-  if (loading) return <Loading />;
+  if (error)
+    return (
+      <>
+        <HeaderBar />
+        <ErrorDisplay errorMessage={error} />
+        <Footer />
+      </>
+    );
+  if (loading)
+    return (
+      <>
+        <HeaderBar /> <Loading /> <Footer />
+      </>
+    );
 
   const cartCount = data.reduce((acc, curr) => {
     if (curr.inCart) {
